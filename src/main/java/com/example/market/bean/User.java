@@ -12,12 +12,13 @@ public class User implements Serializable {
     private String Email;
     private String PassWord;
     private String NikeName;
+    private Integer Type;
 
     public User(){
         super();
     }
 
-    public User(Integer userId, String phone, String userName, String gender, String address, String email, String passWord, String nikeName) {
+    public User(Integer userId, String phone, String userName, String gender, String address, String email, String passWord, String nikeName, Integer type) {
         UserId = userId;
         Phone = phone;
         UserName = userName;
@@ -26,6 +27,7 @@ public class User implements Serializable {
         Email = email;
         PassWord = passWord;
         NikeName = nikeName;
+        Type = type;
     }
 
     public Integer getUserId() {
@@ -68,6 +70,14 @@ public class User implements Serializable {
         Address = address;
     }
 
+    public Integer getType() {
+        return Type;
+    }
+
+    public void setType(Integer type) {
+        Type = type;
+    }
+
     public String getEmail() {
         return Email;
     }
@@ -103,6 +113,7 @@ public class User implements Serializable {
                 ", Email='" + Email + '\'' +
                 ", PassWord='" + PassWord + '\'' +
                 ", NikeName='" + NikeName + '\'' +
+                ", Type=" + Type +
                 '}';
     }
 }

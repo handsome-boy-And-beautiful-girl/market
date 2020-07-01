@@ -6,6 +6,8 @@ import com.example.market.bean.User;
 import com.example.market.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 
 @RestController
@@ -16,7 +18,7 @@ public class UserController {
 
     @ResponseBody
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    public Result login(@RequestBody HashMap<String,String>map){
+    public Result login(@RequestBody HashMap<String,String>map, HttpServletRequest request){
         String Phone = map.get("Phone");
         String PassWord = map.get("PassWord");
         Result result = new Result();

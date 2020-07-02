@@ -7,4 +7,20 @@
     <select id="login" resultType="com.example.market.bean.User">
         select  * from user where Phone=#{Phone} and PassWord=#{PassWord}
     </select>
+    <select id="getUserList" resultType="com.example.market.bean.User">
+        select * from user
+    </select>
+    <delete id="deleteUser">
+        delete * from user where Phone=#{Phone}
+    </delete>
+    <select id="getUser" resultType="com.example.market.bean.User">
+        select  * from user where Phone=#{Phone}
+    </select>
+    <insert id="insertUser" parameterType="com.example.market.bean.User">
+        insert into user (Phone,UserName,PassWord,NikeName) VALUES (#{Phone},#{UserName},#{PassWord},#{NikeName})
+    </insert>
+    <update id="updateUser" parameterMap="com.example.market.bean.User">
+        update user set  UserName=#{UserName} Gender=#{Gender} Address=#{Address} Email=#{Email} NikeName=#{NikeName} WHERE Phone =#{Phone}
+    </update>
+
 </mapper>

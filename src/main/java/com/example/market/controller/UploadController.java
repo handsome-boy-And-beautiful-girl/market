@@ -1,6 +1,7 @@
 package com.example.market.controller;
 
 
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -23,6 +24,7 @@ public class UploadController {
      * */
 
     // 文件上传 保存在本地Z:/img/
+    @ApiOperation(value = "单文件上传",notes = "参数图片")
     @PostMapping("/fileUpload")
     public String FileUpload(MultipartFile file){
         try {
@@ -57,6 +59,7 @@ public class UploadController {
      * 多文件上传
      *
      * */
+    @ApiOperation(value = "多文件上传",notes = "参数图片")
     @PostMapping("/uploads")
     public String upload(MultipartFile[] files, HttpServletRequest req) throws IOException {
         String format = sdf.format(new Date());

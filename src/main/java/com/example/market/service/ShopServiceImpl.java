@@ -4,6 +4,8 @@ package com.example.market.service;
 import com.example.market.Dao.ShopMapper;
 import com.example.market.bean.Result;
 import com.example.market.bean.Shop;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,9 +19,11 @@ public class ShopServiceImpl implements ShopService {
 
     @Override
     public Result getShopList() {
+        PageHelper.startPage(1,10);
         Result result = new Result();
         List<Shop> list = shopMapper.getShopList();
-        return  result.ok("成功",list);
+        PageInfo<Shop> pageInfo = new PageInfo<Shop>(list);
+        return  result.ok("成功",pageInfo);
     }
 
     @Override

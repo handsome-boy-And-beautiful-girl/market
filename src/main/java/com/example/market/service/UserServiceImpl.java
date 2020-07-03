@@ -29,11 +29,9 @@ public class UserServiceImpl implements UserService{
         Result result = new Result();
         User user = userMapper.getUser(Phone);
         if(user == null) {
-            result.error("未查询该用户");
-            return result;
+            return  result.error("未查询该用户");
         }
-        result.ok("查询成功",user);
-        return result;
+        return result.ok("查询成功",user);
     }
 
     // 显示所用户信息
@@ -44,8 +42,7 @@ public class UserServiceImpl implements UserService{
         for(int i=0;i<list.size();i++){
             list.get(i).setPassWord(null);
         }
-        result.ok("成功",list);
-        return result;
+        return result.ok("成功",list);
     }
 
     //用户注册
@@ -54,13 +51,11 @@ public class UserServiceImpl implements UserService{
         Result result  = new Result();
         User user = userMapper.getUser(Phone);
         if(user != null){
-            result.error("注册失败,用户已经存在");
-            return result;
+            return result.error("注册失败,用户已经存在");
         }
         userMapper.insertUser(Phone,UserName,PassWord,NikeName);
         user = userMapper.getUser(Phone);
-        result.ok("用户添加成功",user);
-        return result;
+        return result.ok("用户添加成功",user);
     }
 
     // 用户修改信息
@@ -70,13 +65,11 @@ public class UserServiceImpl implements UserService{
         String Phone = user.getPhone();
         User user1 = userMapper.getUser(Phone);
         if(user1 == null){
-            result.error("对不起，修改错误");
-            return result;
+            return result.error("对不起，修改错误");
         }
         userMapper.updateUser(user);
         user1=userMapper.getUser(Phone);
-        result.ok("成功",user1);
-        return result;
+        return result.ok("成功",user1);
     }
 
     @Override
@@ -84,10 +77,9 @@ public class UserServiceImpl implements UserService{
         Result result = new Result();
         User user = userMapper.getUser(Phone);
         if(user == null){
-            result.error("用户不存在,无法删除");
+            return result.error("用户不存在,无法删除");
         }
         userMapper.deleteUser(Phone);
-        result.ok("删除成功",null);
-        return result;
+        return  result.ok("删除成功",null);
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.market.Dao.ShopMapper">
+    <select id="getShopList"  resultType="com.example.market.bean.Shop">
+        select * from shop
+    </select>
+
+    <select id="getShop" resultType="com.example.market.bean.Shop">
+        select * from shop where shopName=#{shopName}
+    </select>
+
+    <insert id="insertShop" parameterType="com.example.market.bean.Shop">
+        insert into user (shopName,shopNumber,shopImg,describe,category,price,quantity) VALUES (#{shopName},#{shopNumber},#{shopImg},#{describe},#{category},#{price},#{quantity})
+    </insert>
+
+    <update id="updateShop" parameterType="com.example.market.bean.Shop">
+        update user set  shopName=#{shopName} shopNumber=#{shopNumber} shopImg=#{shopImg} describe=#{describe} category=#{category}  price=#{price} quantity=#{quantity} WHERE id =#{id}
+    </update>
+
+
+</mapper>

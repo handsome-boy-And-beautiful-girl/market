@@ -11,11 +11,11 @@ public interface ShoppingCartService {
     Result getCartList();
 
     // 删除购物车中的商品信息
-    void deleteCart();
+    Result deleteCart();
 
     //cartId 查询购物车中信息
-    ShoppingCart selectCart(String cartId);
+    Result selectCart(String cartId);
 
     // 商品添加到购物车
-    void insertShoppingCart(ShoppingCart shoppingCart);
+    Result insertShoppingCart(ShoppingCart shoppingCart);
 }

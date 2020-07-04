@@ -11,13 +11,13 @@ public interface ShopRecommendService {
     Result getShopRecommendList();
 
     // 删除一个推荐的商品
-    void deleteShopRecommend(Integer recommendId);
+    Result deleteShopRecommend(Integer recommendId);
 
     // 查询一个推荐商品
-    ShopRecommend getShopRecommend(Integer recommendId);
+    Result getShopRecommend(Integer recommendId);
 
     // 添加提个推荐商品
 
-    void insertShopRecommend(ShopRecommend shopRecommend);
+    Result insertShopRecommend(ShopRecommend shopRecommend);
 
 }

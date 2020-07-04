@@ -7,6 +7,10 @@ public class ShopType implements Serializable {
     private String typeName;
     private String typeIcon;
 
+    public ShopType(){
+        super();
+    }
+
     public ShopType(int typeId, String typeName, String typeIcon) {
         this.typeId = typeId;
         this.typeName = typeName;

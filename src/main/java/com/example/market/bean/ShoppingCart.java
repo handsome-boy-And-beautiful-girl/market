@@ -12,6 +12,10 @@ public class ShoppingCart implements Serializable {
     private int price;
     private String description;
 
+    public ShoppingCart(){
+        super();
+    }
+
     public ShoppingCart(int cartId, int userID, String userPhone, int shopId, String shopName, String shopImage, int price, String description) {
         this.cartId = cartId;
         this.userID = userID;

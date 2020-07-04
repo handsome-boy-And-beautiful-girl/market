@@ -11,7 +11,7 @@ public interface ShopTypeService {
     Result getShopType(String typeName);
 
     // 删除类别
-    Result deleteShopType(Integer typaId,String typeName);
+    Result deleteShopType(Integer typeId,String typeName);
 
     //添加类别
     Result insertShopType(ShopType shopType);

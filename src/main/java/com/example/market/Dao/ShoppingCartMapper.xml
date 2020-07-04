@@ -13,6 +13,10 @@
         select * from shoppingcart where cartId=#{cardId}
     </select>
 
+    <select id="selectCartShopName" resultType="com.example.market.bean.ShoppingCart">
+        select * from shoppingcart where shopId=#{shopId} and userPhone={userPhone}
+    </select>
+
 <!--    删除类别 -->
     <delete id="deleteCart">
         delete * from shoppingcart where cartId=#{cardId}

@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
+// 订单
 @Mapper
 public interface OrderMapper {
     // 显示所有订单

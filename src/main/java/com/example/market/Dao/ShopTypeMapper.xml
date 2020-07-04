@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.market.Dao.ShopTypeMapper">
+    <select id="getShopTypeList" resultType="com.example.market.bean.ShopType">
+        select * from shoptype
+    </select>
+
+    <select id="getShopType" resultType="com.example.market.bean.ShopType">
+        select * from shoptype where typeName=#{typeName}
+    </select>
+
+    <delete id="deleteShopType">
+        delete * from shoptype where typyId=#{typeId} and typeName={typeName}
+    </delete>
+
+    <insert id="insertShopType" parameterType="com.example.market.bean.ShopType">
+        insert into user (typeName,typeIcon) VALUES (#{typeIcon},#{typeIcon})
+    </insert>
+    <update id="updateShopType" parameterType="com.example.market.bean.ShopType">
+        update user set typeName=#{typeName}  typeIcon=#{typeIcon} WHERE typeId =#{typeId}
+    </update>
+</mapper>

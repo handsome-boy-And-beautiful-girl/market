@@ -5,19 +5,12 @@ import java.io.Serializable;
 public class ShopType implements Serializable {
     private int typeId;
     private String typeName;
-    private String typeImage;
-    private int shopId;
-    private String shopName;
+    private String typeIcon;
 
-    @Override
-    public String toString() {
-        return "ShopType{" +
-                "typeId=" + typeId +
-                ", typeName='" + typeName + '\'' +
-                ", typeImage='" + typeImage + '\'' +
-                ", shopId=" + shopId +
-                ", shopName='" + shopName + '\'' +
-                '}';
+    public ShopType(int typeId, String typeName, String typeIcon) {
+        this.typeId = typeId;
+        this.typeName = typeName;
+        this.typeIcon = typeIcon;
     }
 
     public int getTypeId() {
@@ -36,35 +29,20 @@ public class ShopType implements Serializable {
         this.typeName = typeName;
     }
 
-    public String getTypeImage() {
-        return typeImage;
+    public String getTypeIcon() {
+        return typeIcon;
     }
 
-    public void setTypeImage(String typeImage) {
-        this.typeImage = typeImage;
+    public void setTypeIcon(String typeIcon) {
+        this.typeIcon = typeIcon;
     }
 
-    public int getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(int shopId) {
-        this.shopId = shopId;
-    }
-
-    public String getShopName() {
-        return shopName;
-    }
-
-    public void setShopName(String shopName) {
-        this.shopName = shopName;
-    }
-
-    public ShopType(int typeId, String typeName, String typeImage, int shopId, String shopName) {
-        this.typeId = typeId;
-        this.typeName = typeName;
-        this.typeImage = typeImage;
-        this.shopId = shopId;
-        this.shopName = shopName;
+    @Override
+    public String toString() {
+        return "ShopType{" +
+                "typeId=" + typeId +
+                ", typeName='" + typeName + '\'' +
+                ", typeIcon='" + typeIcon + '\'' +
+                '}';
     }
 }

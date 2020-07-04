@@ -4,6 +4,7 @@ package com.example.market.service;
 import com.example.market.Dao.ShopMapper;
 import com.example.market.bean.Result;
 import com.example.market.bean.Shop;
+import com.example.market.service.serviceIn.ShopService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;

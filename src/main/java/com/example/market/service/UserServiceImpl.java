@@ -4,6 +4,7 @@ package com.example.market.service;
 import com.example.market.Dao.UserMapper;
 import com.example.market.bean.Result;
 import com.example.market.bean.User;
+import com.example.market.service.serviceIn.UserService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +12,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     UserMapper userMapper;
 

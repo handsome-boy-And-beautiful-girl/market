@@ -4,13 +4,14 @@ package com.example.market.service;
 import com.example.market.Dao.OrderMapper;
 import com.example.market.bean.Order;
 import com.example.market.bean.Result;
+import com.example.market.service.serviceIn.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class OrderServiceImpl implements OrderService{
+public class OrderServiceImpl implements OrderService {
     @Autowired
     OrderMapper orderMapper;
 

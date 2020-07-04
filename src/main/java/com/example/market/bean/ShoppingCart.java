@@ -3,6 +3,7 @@ package com.example.market.bean;
 import java.io.Serializable;
 
 public class ShoppingCart implements Serializable {
+    private int cartId;
     private int userID;
     private String userPhone;
     private int shopId;
@@ -11,17 +12,15 @@ public class ShoppingCart implements Serializable {
     private int price;
     private String description;
 
-    @Override
-    public String toString() {
-        return "ShoppingCart{" +
-                "userID=" + userID +
-                ", userPhone='" + userPhone + '\'' +
-                ", shopId=" + shopId +
-                ", shopName='" + shopName + '\'' +
-                ", shopImage='" + shopImage + '\'' +
-                ", price=" + price +
-                ", description='" + description + '\'' +
-                '}';
+    public ShoppingCart(int cartId, int userID, String userPhone, int shopId, String shopName, String shopImage, int price, String description) {
+        this.cartId = cartId;
+        this.userID = userID;
+        this.userPhone = userPhone;
+        this.shopId = shopId;
+        this.shopName = shopName;
+        this.shopImage = shopImage;
+        this.price = price;
+        this.description = description;
     }
 
     public int getUserID() {
@@ -80,13 +79,26 @@ public class ShoppingCart implements Serializable {
         this.description = description;
     }
 
-    public ShoppingCart(int userID, String userPhone, int shopId, String shopName, String shopImage, int price, String description) {
-        this.userID = userID;
-        this.userPhone = userPhone;
-        this.shopId = shopId;
-        this.shopName = shopName;
-        this.shopImage = shopImage;
-        this.price = price;
-        this.description = description;
+    public int getCartId() {
+        return cartId;
     }
+
+    public void setCartId(int cartId) {
+        this.cartId = cartId;
+    }
+
+    @Override
+    public String toString() {
+        return "ShoppingCart{" +
+                "cartId=" + cartId +
+                ", userID=" + userID +
+                ", userPhone='" + userPhone + '\'' +
+                ", shopId=" + shopId +
+                ", shopName='" + shopName + '\'' +
+                ", shopImage='" + shopImage + '\'' +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
+    }
+
 }

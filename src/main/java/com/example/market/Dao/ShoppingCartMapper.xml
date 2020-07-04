@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.market.Dao.ShoppingCartMapper">
+<!--    显示个人所有的购物车商品信息-->
+    <select id="getCartList" resultType="com.example.market.bean.ShoppingCart">
+        select * from shoppingcart where userPhone=#{userPhone}
+    </select>
+
+<!--    查询单个购物车中的商品信息-->
+    <select id="selectCart" resultType="com.example.market.bean.ShoppingCart">
+        select * from shoppingcart where cartId=#{cardId}
+    </select>
+
+<!--    删除类别 -->
+    <delete id="deleteCart">
+        delete * from shoppingcart where cartId=#{cardId}
+    </delete>
+<!--    商品添加购物车-->
+    <insert id="insertShoppingCart" parameterType="com.example.market.bean.ShoppingCart">
+        insert into shoppingcart (userID,userPhone,shopName,shopImage,price,description) VALUES (#{userID},#{userPhone},#{shopName},#{shopImage},#{price},#{description})
+    </insert>
+</mapper>

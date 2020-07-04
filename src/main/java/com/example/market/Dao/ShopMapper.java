@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
+// 商品
 @Mapper
 public interface ShopMapper {
 

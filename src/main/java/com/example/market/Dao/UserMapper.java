@@ -20,7 +20,7 @@ public interface UserMapper {
     List<User> getUserList();
 
     // 用户注册
-    void insertUser(String Phone,String UserName,String PassWord,String NikeName);
+    void insertUser(String Phone,String UserName,String PassWord,String NikeName,String Email);
 
     //  删除用户
     void deleteUser(String  Phone);

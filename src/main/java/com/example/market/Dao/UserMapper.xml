@@ -17,7 +17,7 @@
         select  * from user where Phone=#{Phone}
     </select>
     <insert id="insertUser" parameterType="com.example.market.bean.User">
-        insert into user (Phone,UserName,PassWord,NikeName) VALUES (#{Phone},#{UserName},#{PassWord},#{NikeName})
+        insert into user (Phone,UserName,PassWord,NikeName,Email) VALUES (#{Phone},#{UserName},#{PassWord},#{NikeName},#{Email})
     </insert>
     <update id="updateUser" parameterType="com.example.market.bean.User">
         update user set  UserName=#{UserName} Gender=#{Gender} Address=#{Address} Email=#{Email} NikeName=#{NikeName} WHERE Phone =#{Phone}

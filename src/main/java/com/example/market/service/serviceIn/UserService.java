@@ -17,7 +17,7 @@ public interface UserService {
     Result getUserList();
 
     // 用户注册
-    Result insertUser(String Phone, String UserName, String PassWord, String NikeName);
+    Result insertUser(String Phone, String UserName, String PassWord, String NikeName,String Email);
 
     // 修改用信息
     Result updateUser(User user);

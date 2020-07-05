@@ -8,6 +8,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,8 +27,12 @@ public class UserController {
     public Result login(@RequestBody HashMap<String,String>map, HttpServletRequest request){
         String Phone = map.get("Phone");
         String PassWord = map.get("PassWord");
+        System.out.println(PassWord);
+        System.out.println(Phone);
+
         Result result = new Result();
         User user = userService.login(Phone,PassWord);
+        System.out.println(user.toString());
         if (user==null){
             return result.error("账号密码错误");
         }
@@ -57,9 +62,14 @@ public class UserController {
     public Result insertUser(@RequestBody HashMap<String,String>map){
         String Phone = map.get("Phone");
         String UserName = map.get("UserName");
-        String PassWord = map.get("PassWord");
+        String PassWord = DigestUtils.md5Hex(map.get("PassWord"));
         String NikeName = map.get("NikeName");
-        return userService.insertUser(Phone,UserName,PassWord,NikeName);
+        String Email = map.get("Email");
+        System.out.println(Phone);
+        System.out.println(PassWord);
+        System.out.println(NikeName);
+        System.out.println(Email);
+        return userService.insertUser(Phone,UserName,PassWord,NikeName,Email);
     }
 
     //Phone 删除用户

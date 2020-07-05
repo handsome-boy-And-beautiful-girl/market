@@ -48,14 +48,15 @@ public class UserServiceImpl implements UserService {
 
     //用户注册
     @Override
-    public Result insertUser(String Phone, String UserName, String PassWord, String NikeName) {
+    public Result insertUser(String Phone, String UserName, String PassWord, String NikeName,String Email) {
         Result result  = new Result();
         User user = userMapper.getUser(Phone);
-        if(user != null){
+        if(user != null) {
             return result.error("注册失败,用户已经存在");
         }
-        userMapper.insertUser(Phone,UserName,PassWord,NikeName);
+        userMapper.insertUser(Phone,UserName,PassWord,NikeName,Email);
         user = userMapper.getUser(Phone);
+        System.out.println(user.toString());
         return result.ok("用户添加成功",user);
     }
 

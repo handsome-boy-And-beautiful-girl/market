@@ -21,4 +21,7 @@ public interface ShopMapper {
 
     //修改商品信息
     void updateShop(Shop shop);
+
+    // 删除商品
+    void deleteShop(Integer id);
 }

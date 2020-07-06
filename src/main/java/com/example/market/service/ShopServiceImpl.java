@@ -19,11 +19,13 @@ public class ShopServiceImpl implements ShopService {
 
 
     @Override
-    public Result getShopList() {
-        PageHelper.startPage(1,10);
+    public Result getShopList(Integer pageNum) {
         Result result = new Result();
+        PageHelper.startPage(pageNum,10);
         List<Shop> list = shopMapper.getShopList();
-        PageInfo<Shop> pageInfo = new PageInfo<Shop>(list);
+        PageInfo<Shop> pageInfo = new PageInfo<>(list);
+//        System.out.println(list);
+//        System.out.println(pageInfo);
         return  result.ok("成功",pageInfo);
     }
 
@@ -58,5 +60,12 @@ public class ShopServiceImpl implements ShopService {
         String shopName = shop.getShopName();
         shopMapper.updateShop(shop);
         return  result.ok("修改成功",shopMapper.getShop(shopName));
+    }
+
+    @Override
+    public Result deleteShop(Integer id) {
+        Result result = new Result();
+        shopMapper.deleteShop(id);
+        return result.ok("成功删除",null);
     }
 }

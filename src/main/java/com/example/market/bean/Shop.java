@@ -7,7 +7,7 @@ public class Shop implements Serializable {
     private String shopName;
     private String ShopNumber;
     private String shopImg;
-    private String describe;
+    private String summarize;
     private String category;
     private double price;
     private String quantity;
@@ -16,12 +16,12 @@ public class Shop implements Serializable {
         super();
     }
 
-    public Shop(Integer id, String shopName, String shopNumber, String shopImg, String describe, String category, double price, String quantity) {
+    public Shop(Integer id, String shopName, String shopNumber, String shopImg, String summarize, String category, double price, String quantity) {
         this.id = id;
         this.shopName = shopName;
         ShopNumber = shopNumber;
         this.shopImg = shopImg;
-        this.describe = describe;
+        this.summarize = summarize;
         this.category = category;
         this.price = price;
         this.quantity = quantity;
@@ -59,12 +59,12 @@ public class Shop implements Serializable {
         this.shopImg = shopImg;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getSummarize() {
+        return summarize;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setSummarize(String summarize) {
+        this.summarize = summarize;
     }
 
     public String getCategory() {
@@ -98,7 +98,7 @@ public class Shop implements Serializable {
                 ", shopName='" + shopName + '\'' +
                 ", ShopNumber='" + ShopNumber + '\'' +
                 ", shopImg='" + shopImg + '\'' +
-                ", describe='" + describe + '\'' +
+                ", summarize='" + summarize + '\'' +
                 ", category='" + category + '\'' +
                 ", price=" + price +
                 ", quantity='" + quantity + '\'' +

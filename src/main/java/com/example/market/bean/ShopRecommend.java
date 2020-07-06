@@ -6,28 +6,29 @@ public class ShopRecommend implements Serializable {
     private int recommendId;
     private int shopId;
     private String shopName;
-    private String shopNo;
+    private String shopNumber;
     private String shopImage;
-    private String description;
-    private int price;
-    private int shopCount;
+    private String summarize;
+    private double price;
+    private int quantity;
     private int typeId;
-    private String typeName;
+    private String category;
 
-    @Override
-    public String toString() {
-        return "ShopRecommend{" +
-                "recommendId=" + recommendId +
-                ", shopId=" + shopId +
-                ", shopName='" + shopName + '\'' +
-                ", shopNo='" + shopNo + '\'' +
-                ", shopImage='" + shopImage + '\'' +
-                ", description='" + description + '\'' +
-                ", price=" + price +
-                ", shopCount=" + shopCount +
-                ", typeId=" + typeId +
-                ", typeName='" + typeName + '\'' +
-                '}';
+    public ShopRecommend(){
+        super();
+    }
+
+    public ShopRecommend(int recommendId, int shopId, String shopName, String shopNumber, String shopImage, String summarize, int price, int quantity, int typeId, String category) {
+        this.recommendId = recommendId;
+        this.shopId = shopId;
+        this.shopName = shopName;
+        this.shopNumber = shopNumber;
+        this.shopImage = shopImage;
+        this.summarize = summarize;
+        this.price = price;
+        this.quantity = quantity;
+        this.typeId = typeId;
+        this.category = category;
     }
 
     public int getRecommendId() {
@@ -54,12 +55,12 @@ public class ShopRecommend implements Serializable {
         this.shopName = shopName;
     }
 
-    public String getShopNo() {
-        return shopNo;
+    public String getShopNumber() {
+        return shopNumber;
     }
 
-    public void setShopNo(String shopNo) {
-        this.shopNo = shopNo;
+    public void setShopNumber(String shopNumber) {
+        this.shopNumber = shopNumber;
     }
 
     public String getShopImage() {
@@ -70,28 +71,28 @@ public class ShopRecommend implements Serializable {
         this.shopImage = shopImage;
     }
 
-    public String getDescription() {
-        return description;
+    public String getSummarize() {
+        return summarize;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setSummarize(String summarize) {
+        this.summarize = summarize;
     }
 
-    public int getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
-    public int getShopCount() {
-        return shopCount;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setShopCount(int shopCount) {
-        this.shopCount = shopCount;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public int getTypeId() {
@@ -102,24 +103,27 @@ public class ShopRecommend implements Serializable {
         this.typeId = typeId;
     }
 
-    public String getTypeName() {
-        return typeName;
+    public String getCategory() {
+        return category;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
-    public ShopRecommend(int recommendId, int shopId, String shopName, String shopNo, String shopImage, String description, int price, int shopCount, int typeId, String typeName) {
-        this.recommendId = recommendId;
-        this.shopId = shopId;
-        this.shopName = shopName;
-        this.shopNo = shopNo;
-        this.shopImage = shopImage;
-        this.description = description;
-        this.price = price;
-        this.shopCount = shopCount;
-        this.typeId = typeId;
-        this.typeName = typeName;
+    @Override
+    public String toString() {
+        return "ShopRecommend{" +
+                "recommendId=" + recommendId +
+                ", shopId=" + shopId +
+                ", shopName='" + shopName + '\'' +
+                ", shopNumber='" + shopNumber + '\'' +
+                ", shopImage='" + shopImage + '\'' +
+                ", summarize='" + summarize + '\'' +
+                ", price=" + price +
+                ", quantity=" + quantity +
+                ", typeId=" + typeId +
+                ", category='" + category + '\'' +
+                '}';
     }
 }

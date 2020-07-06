@@ -1,9 +1,11 @@
 package com.example.market.controller;
 
 
+import com.example.market.bean.Result;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -25,11 +27,12 @@ public class UploadController {
 
     // 文件上传 保存在本地Z:/img/
     @ApiOperation(value = "单文件上传",notes = "参数图片")
-    @PostMapping("/fileUpload")
-    public String FileUpload(MultipartFile file){
+    @PostMapping(value = "/fileUpload")
+    public Result FileUpload(MultipartFile file,HttpServletRequest request){
+        Result result = new Result();
         try {
             if(file.isEmpty()){
-                return "文件为空";
+                return result.error("文件为空");
             }
             // 获取文件名
             String filename = file.getOriginalFilename();
@@ -45,13 +48,38 @@ public class UploadController {
             }
             System.out.println("上传的文件路径为"+path);
             file.transferTo(dest);
-            return "上传成功";
+            return result.ok("上传成功",path);
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return "上传失败";
+        return result.error("上传失败");
 
+    }
+
+    @PostMapping("/uploadFiles")
+    public Result uploadss(MultipartFile file, HttpServletRequest req) throws IOException {
+        Result result = new Result();
+        String format = sdf.format(new Date());
+        String realpath = req.getServletContext().getRealPath("/img/")+format+"/";
+        File folder = new File(realpath);
+        if (!folder.exists()){
+            //  如果不存在
+            folder.mkdirs();
+        }
+        //  获取文件名字
+        String oldName = file.getOriginalFilename();
+        String newName = UUID.randomUUID().toString()+oldName.substring(oldName.lastIndexOf("."));
+        try{
+            file.transferTo(new File(folder,newName));
+            String url = req.getScheme()+"://"+req.getServerName()+":"+req.getServerPort()+"/img/"+format+"/"+ newName;
+            System.out.println(url);
+            return result.ok("上传成功",url);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+        return result.error("上传失败");
     }
 
     /*

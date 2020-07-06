@@ -16,6 +16,6 @@
     </select>
 
     <insert id="insertShopRecommend" parameterType="com.example.market.bean.ShopRecommend">
-        insert into user (shopId,shopName,shopNo,shopImage,description,price,shopCount,typeId,typeName) VALUES (#{shopId},#{shopName},#{shopNo},#{shopImage},#{description},#{price},#{shopCount},#{typeId},#{typeName})
+        insert into shoprecommend (recommendId,shopId,shopName,shopNumber,shopImage,summarize,price,quantity,typeId,category) VALUES (#{recommendId},#{shopId},#{shopName},#{shopNumber},#{shopImage},#{summarize},#{price},#{quantity},#{typeId},#{category})
     </insert>
 </mapper>

@@ -5,8 +5,11 @@ import com.example.market.bean.Result;
 import com.example.market.bean.ShopRecommend;
 import com.example.market.service.ShopRecommendServiceImpl;
 import io.swagger.annotations.ApiOperation;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.HashMap;
 
 @RestController
 @RequestMapping(value = "/shopRecommend")
@@ -17,14 +20,16 @@ public class ShopRecommendController {
     @ApiOperation(value = "显示所有推荐的商品信息", notes = "无参数")
     @ResponseBody
     @RequestMapping(value = "/getShopRecommendList", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    public Result getShopRecommendList(){
-        return shopRecommendService.getShopRecommendList();
+    public Result getShopRecommendList(@RequestBody HashMap<String, Integer> map){
+        Integer pageNum = map.get("pageNum");
+        return shopRecommendService.getShopRecommendList(pageNum);
     }
 
     @ApiOperation(value = "删除推荐的商品信息", notes = "参数:recommend")
     @ResponseBody
     @RequestMapping(value = "/deleteShopRecommend", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    public Result deleteShopRecommend(@RequestBody Integer recommendId){
+    public Result deleteShopRecommend(@RequestBody HashMap<String,Integer>map){
+        Integer recommendId = map.get("recommendId");
         return shopRecommendService.deleteShopRecommend(recommendId);
     }
 

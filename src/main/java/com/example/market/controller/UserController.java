@@ -51,8 +51,9 @@ public class UserController {
     @ApiOperation(value = "显示用户所有信息",notes = "无参数")
     @ResponseBody
     @RequestMapping(value = "/user/getUserList", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
-    public Result getUserList(){
-        return userService.getUserList();
+    public Result getUserList(@RequestBody HashMap<String,Integer>map){
+        Integer pageNum = map.get("pageNum");
+        return userService.getUserList(pageNum);
     }
 
     //用户注册

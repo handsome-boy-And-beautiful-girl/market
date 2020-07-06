@@ -3,7 +3,11 @@ package com.example.market.service;
 import com.example.market.Dao.ShopRecommendMapper;
 import com.example.market.bean.Result;
 import com.example.market.bean.ShopRecommend;
+import com.example.market.bean.User;
 import com.example.market.service.serviceIn.ShopRecommendService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +21,12 @@ public class ShopRecommendServiceImpl implements ShopRecommendService {
     ShopRecommendMapper shopRecommendMapper;
 
     @Override
-    public Result getShopRecommendList() {
+    public Result getShopRecommendList(Integer pageNum) {
         Result result = new Result();
+        PageHelper.startPage(pageNum,10);
         List<ShopRecommend>list = shopRecommendMapper.getShopRecommendList();
-        return result.ok("成功",list);
+        PageInfo<ShopRecommend> pageInfo = new PageInfo<>(list);
+        return result.ok("成功",pageInfo);
     }
 
     @Override

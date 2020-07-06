@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ShopRecommendService {
     // 获取推荐的商品list
-    Result getShopRecommendList();
+    Result getShopRecommendList(Integer pageNum);
 
     // 删除一个推荐的商品
     Result deleteShopRecommend(Integer recommendId);

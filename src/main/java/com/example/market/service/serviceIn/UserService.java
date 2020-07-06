@@ -14,7 +14,7 @@ public interface UserService {
     Result getUser(String Phone);
 
     // 显示所有的用户信息
-    Result getUserList();
+    Result getUserList(Integer pageNum);
 
     // 用户注册
     Result insertUser(String Phone, String UserName, String PassWord, String NikeName,String Email);

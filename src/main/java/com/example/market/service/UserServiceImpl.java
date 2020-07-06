@@ -3,8 +3,11 @@ package com.example.market.service;
 
 import com.example.market.Dao.UserMapper;
 import com.example.market.bean.Result;
+import com.example.market.bean.Shop;
 import com.example.market.bean.User;
 import com.example.market.service.serviceIn.UserService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,13 +40,15 @@ public class UserServiceImpl implements UserService {
 
     // 显示所用户信息
     @Override
-    public Result getUserList() {
+    public Result getUserList(Integer pageNum) {
         Result result = new Result();
+        PageHelper.startPage(pageNum,10);
         List<User> list = userMapper.getUserList();
+        PageInfo<User> pageInfo = new PageInfo<>(list);
         for(int i=0;i<list.size();i++){
             list.get(i).setPassWord(null);
         }
-        return result.ok("成功",list);
+        return result.ok("成功",pageInfo);
     }
 
     //用户注册
